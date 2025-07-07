@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IP Scan Results<span id="logo">.</span></h1>
+        <p class="processing-time">Scanned {{ results|length }} IPs in {{ processing_time }} seconds</p>
+        
+        <div class="results">
+            {% for result in results %}
+                <div class="ip-card">
+                    <h3>IP: {{ result.ip }}</h3>
+                    <div class="ip-details">
+                        <p><strong>Hostname:</strong> {{ result.hostname or 'N/A' }}</p>
+                        <p><strong>Location:</strong> 
+                            {% if result.city %}{{ result.city }}, {% endif %}
+                            {% if result.region %}{{ result.region }}, {% endif %}
+                            {{ result.country }}
+                            {% if result.loc %}({{ result.loc }}){% endif %}
+                        </p>
+                        <p><strong>Lat/Long:</strong> {{ result.location or 'N/A' }}</p>
+                        <p><strong>ISP/Org:</strong> {{ result.org or 'N/A' }}</p>
+                        <p><strong>Postal Code:</strong> {{ result.postal or 'N/A' }}</p>
+                        <p><strong>Timezone:</strong> {{ result.timezone or 'N/A' }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="actions">
+            <a href="{{ url_for('download', filename=pdf_filename) }}" class="nxt-btns download-btn">Download Report</a>
+            <a href="{{ url_for('index') }}" class="nxt-btns scan-more-btn">Scan More IPs</a>
+        </div>
+    </div>
+</body>
+</html>

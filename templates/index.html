@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance IP Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Advance IP Scanner<span id="logo">.</span></h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="ip_input">Enter IP Addresses:</label>
+                <input type="text" id="ip_input" name="ip_input" placeholder="e.g: 192.168.0.1, 10.10.10.1">
+                <small class="form-text">Separate multiple IPs with commas</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="ip_file">Or upload a text file with IPs:</label>
+                <input type="file" id="ip_file" name="ip_file" accept=".txt">
+                <small class="form-text">One IP per line or comma-separated</small>
+            </div>
+            
+            <button type="submit" class="btn">Start Scan</button>
+        </form>
+    </div>
+</body>
+</html>
