@@ -59,9 +59,7 @@ This is a web-based IP information tool built with **Python Flask**, developed d
 
 ## 👨‍💻 Author
 
-**Aman Chauhan**  
-Cyber Security Intern – GPCSSI 2025  
-Email: [amanchauhan0047@gmail.com]  
-GitHub: [https://github.com/amanchauhan47](https://github.com/amanchauhan47)
-
+**Aman Chauhan**
+**Samay Kumar**
+**Sonu Kumar**
 ---
