@@ -60,6 +60,6 @@ This is a web-based IP information tool built with **Python Flask**, developed d
 ## 👨‍💻 Author
 
 - **[Aman Chauhan](https://github.com/amanchauhan47)**
-- **Samay Kumar**
+- **[Samay Kumar](https://github.com/cybersamay)**
 - **[Sonu Kumar](https://github.com/cs-sonu7)**
 
